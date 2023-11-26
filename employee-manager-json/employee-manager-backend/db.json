@@ -1,7 +1,26 @@
 {
   "departments":[
     {
-      
+      "id": 1,
+      "name": "Sales",
+      "employee_list": [
+        {
+          "id": 1,
+          "name": "John Doe",
+          "address": "Dallas, Texas",
+          "email": "john.doe@gmail.com",
+          "phone": "+123456789",
+          "task_list": [
+            {
+              "id": "1",
+              "summary": "TaskUpdate",
+              "acceptanceCriteria": "Tasks",
+              "status": "IN_PROGRESS",
+              "priority": "1"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
