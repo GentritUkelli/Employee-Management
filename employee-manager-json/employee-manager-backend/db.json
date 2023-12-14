@@ -21,10 +21,14 @@
           ]
         }
       ]
+    },
+    {
+      "id": 2,
+      "employee_list": []
     }
   ],
   "lastUsedId": {
-    "departmentId": 2,
+    "departmentId": 3,
     "employeeId": 2,
     "taskId": 2
   }
