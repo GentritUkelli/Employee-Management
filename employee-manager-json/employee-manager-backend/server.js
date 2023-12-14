@@ -10,12 +10,12 @@ server.use(middlewares);//takes all middlewares json server has
 
 const departmentsRoutes = require("./routes/departments");
 const employeesRoutes = require("./routes/employees");
-//const tasksRoutes = require("./routes/tasks");
+const tasksRoutes = require("./routes/tasks");
 
 //use routes handlers for json data
 departmentsRoutes(server);
 employeesRoutes(server);
-//tasksRoutes(server);
+tasksRoutes(server);
 
 //start json server on port 8095
 server.listen(jsonServerPort,() => {
