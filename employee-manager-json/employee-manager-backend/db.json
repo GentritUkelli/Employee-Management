@@ -17,6 +17,10 @@
               "acceptanceCriteria": "Tasks",
               "status": "IN_PROGRESS",
               "priority": "1"
+            },
+            {
+              "id": 2,
+              "priority": null
             }
           ]
         }
@@ -30,6 +34,6 @@
   "lastUsedId": {
     "departmentId": 3,
     "employeeId": 2,
-    "taskId": 2
+    "taskId": 3
   }
 }
