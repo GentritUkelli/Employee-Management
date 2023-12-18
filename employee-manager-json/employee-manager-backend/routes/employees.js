@@ -10,12 +10,14 @@ module.exports = function (server) {
     const requestBody = request.body;
     const departmentsData = router.db.get("departments").value();
     const index = departmentsData.findIndex((dept) => dept.id === departmentId);
+
     // check if the departments exists
     if (index === -1) {
       response.status(404).json({ error: "Department not found" });
     } else {
       const department = departmentsData[index];
       const employeeList = department.employee_list;
+
       if (requestBody.id === undefined) {
         let employeeId;
         employeeId = employeeIdCounter++;

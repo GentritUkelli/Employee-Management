@@ -1,3 +1,4 @@
+
 const jsonServer = require("json-server");
 const router = jsonServer.router("db.json");
 const { readLastUsedTaskId } = require("../utils");
@@ -14,7 +15,7 @@ module.exports = function (server) {
     const employeeId = parseInt(request.params.emp_id);
     const departmentsData = router.db.get("departments").value();
     const department = departmentsData.find((dept) => dept.id === departmentId);
-
+  
     if (!department) {
       response.status(404).json({ error: "Department not found" });
     } else {
@@ -50,21 +51,21 @@ module.exports = function (server) {
     const departmentId = parseInt(request.params.dep_id);
     const employeeId = parseInt(request.params.emp_id);
     const taskId = request.params.id ? parseInt(request.params.id) : null; 
-
+  
     const departmentsData = router.db.get("departments").value();
     const department = departmentsData.find((dept) => dept.id === departmentId);
-
+  
     if (!department) {
       response.status(404).json({ error: "Department not found" });
     } else {
       const employee = department.employee_list.find((emp) => emp.id === employeeId);
-
+  
       if (!employee) {
         response.status(404).json({ error: "Employee not found in the department" });
       } else {
         if (taskId) {
           const task = employee.task_list.find((t) => t.id === taskId);
-
+  
           if (!task) {
             response.status(404).json({ error: "Task not found" });
           } else {
@@ -76,7 +77,7 @@ module.exports = function (server) {
       }
     }
   });  
-
+  
   server.delete("/api/tasks/:dep_id/:emp_id/:task_id", (request, response) => {
     const departmentId = parseInt(request.params.dep_id);
     const employeeId = parseInt(request.params.emp_id);
@@ -97,7 +98,7 @@ module.exports = function (server) {
       }
     }
   });
-  
+
   server.get("/api/task/:task_id", (request, response) => {
     const taskId = parseInt(request.params.task_id);
     const departmentsData = router.db.get("departments").value();
@@ -111,4 +112,45 @@ module.exports = function (server) {
     }
     response.status(404).json({ error: "Task not found" });
   });
-}
+
+  server.put("/api/tasks/:dep_id/:emp_id/:task_id", (request,response ) => {
+    const departmentId = parseInt(request.params.dep_id);
+    const employeeId = parseInt(request.params.emp_id);
+    const taskId = parseInt(request.params.task_id);
+    const requestBody = request.body;
+
+    console.log("Recievied PUT request with the following parameters:");
+    console.log("Department ID:" , departmentId);
+    console.log("Employee ID:", employeeId);
+    console.log("Task ID:", taskId);
+    console.log("Request Body:", requestBody);
+
+    const departmentsData = router.db.get("departments").value();
+    const department = departmentsData.find((dept) => dept.id === departmentId);
+    if(!department){
+      response.status(404).json({error: "Department not found"});
+    } else{
+      const employee = department.employee_list.find((emp) => emp.id === employeeId);
+
+      if(!employee){
+        response.status(404).json({error: "Employee not found in the department"});
+      }else{
+        updateTask(taskId, employee, requestBody, response, departmentsData);
+      }
+    }
+  });
+
+  function updateTask(taskId, employee, updatedData , response, departmentsData){
+    const taskList = employee.task_list;
+    const taskIndex = taskList.findIndex((task) => task.id === taskId);
+
+    if(taskIndex === -1){
+      response.status(404).json({error: "Task not found"});
+    }else {
+      taskList[taskIndex] ={...taskList[taskIndex], ...updatedData};
+
+      router.db.set("departments" , departmentsData).write();
+      response.json({message: "Task updated successfully"});
+    }
+  }
+};

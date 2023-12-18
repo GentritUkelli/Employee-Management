@@ -7,33 +7,73 @@
         {
           "id": 1,
           "name": "John Doe",
-          "address": "Dallas, Texas",
-          "email": "john.doe@gmail.com",
-          "phone": "+123456789",
+          "address": "Kosovo,11000",
+          "email": "editalatifi1996@gmail.com",
+          "phone": "49777888",
           "task_list": [
             {
-              "id": "1",
+              "id": 1,
               "summary": "TaskUpdate",
               "acceptanceCriteria": "Tasks",
               "status": "IN_PROGRESS",
               "priority": "1"
             },
             {
-              "id": 2,
+              "id": 20,
               "priority": null
             }
           ]
+        },
+        {
+          "id": 5,
+          "task_list": []
+        },
+        {
+          "id": 6,
+          "task_list": []
+        },
+        {
+          "id": 7,
+          "task_list": []
+        },
+        {
+          "id": 8,
+          "task_list": []
+        },
+        {
+          "id": 9,
+          "task_list": []
         }
       ]
     },
     {
-      "id": 2,
+      "id": 9,
+      "name": "ReactJS",
+      "employee_list": []
+    },
+    {
+      "id": 10,
+      "name": "InternshipWeb",
+      "employee_list": []
+    },
+    {
+      "id": 11,
+      "name": "WebDevs",
+      "employee_list": []
+    },
+    {
+      "id": 12,
+      "name": "Marketing",
+      "employee_list": []
+    },
+    {
+      "id": 13,
       "employee_list": []
     }
   ],
   "lastUsedId": {
-    "departmentId": 3,
-    "employeeId": 2,
-    "taskId": 3
+    "departmentId": 14,
+    "employeeId": 13,
+    "taskId": 21
   }
 }
