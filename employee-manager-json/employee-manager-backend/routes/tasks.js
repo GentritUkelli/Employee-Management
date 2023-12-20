@@ -118,7 +118,7 @@ module.exports = function (server) {
     const taskId = parseInt(request.params.task_id);
     const requestBody = request.body;
 
-    console.log("Recievied PUT request with the following parameters:");
+    console.log("Received PUT request with the following parameters:");
     console.log("Department ID:" , departmentId);
     console.log("Employee ID:", employeeId);
     console.log("Task ID:", taskId);
