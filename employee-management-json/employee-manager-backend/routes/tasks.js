@@ -14,7 +14,6 @@ module.exports = function (server) {
     const employeeId = parseInt(request.params.emp_id);
     const departmentsData = router.db.get("departments").value();
     const department = departmentsData.find((dept) => dept.id === departmentId);
-  
     if (!department) {
       response.status(404).json({ error: "Department not found" });
     } else {

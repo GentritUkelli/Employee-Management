@@ -5,26 +5,6 @@
       "name": "Sales",
       "employee_list": [
         {
-          "id": 1,
-          "name": "John Doe",
-          "address": "Kosovo,11000",
-          "email": "gentrit.ukelli@gmail.com",
-          "phone": "49777888",
-          "task_list": [
-            {
-              "id": 1,
-              "summary": "TaskUpdate",
-              "acceptanceCriteria": "Tasks",
-              "status": "IN_PROGRESS",
-              "priority": "1"
-            },
-            {
-              "id": 20,
-              "priority": null
-            }
-          ]
-        },
-        {
           "id": 5,
           "task_list": []
         },
@@ -58,7 +38,7 @@
     },
     {
       "id": 11,
-      "name": "WebDevs",
+      "name": "WebDev",
       "employee_list": []
     },
     {
