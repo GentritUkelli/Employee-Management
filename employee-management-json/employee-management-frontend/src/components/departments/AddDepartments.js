@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {createDepartment} from "../../actions/DepartmentActions";
-import { Form } from "react-router-dom";
 
 const AddDepartment = () => {
   const dispatch = useDispatch();
@@ -31,12 +30,23 @@ const AddDepartment = () => {
               <label htmlFor="name" className="block text-gray-700">
                 Department Name
               </label>
+              <input type="text" className={`w-full p-3 border border-gray-300 rounded-md ${errors.name ? "border-red-500" : ""}`}
+              placeholder="Department name" name="name" value={name} onChange={onChange}/>
+              {errors.name && (
+                <p className="text-red-500 text-xs mt-1">{errors.name}</p>
+              )}
             </div>
 
-            </form>  
+            <div>
+              <button type="submit" className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md mt-4">
+                Create Department
+                </button>
+            </div>
+          </form>
         </div>
+      </div>
+    </div> 
+  );
+};
 
-       </div>
-    </div>
-  )
-}
+export default AddDepartment;
