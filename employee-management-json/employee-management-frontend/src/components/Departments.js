@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import Department from "./departments/department";
+import Department from "./departments/Department";
 import CreateButton from "./departments/CreateButton";
 import { getDepartments } from "../actions/DepartmentActions";
 import { useSelector, useDispatch } from "react-redux";
